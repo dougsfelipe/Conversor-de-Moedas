@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 
 import { ConversorComponent } from './components/conversor.component';
 import { MoedaService, ConversorService} from './services';
+
 
 
 
@@ -11,7 +14,7 @@ import { MoedaService, ConversorService} from './services';
   declarations: [
     ConversorComponent],
   imports: [
-    CommonModule
+    CommonModule,FormsModule
   ],
   exports: [
     ConversorComponent
