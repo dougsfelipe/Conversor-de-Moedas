@@ -16,11 +16,12 @@ export class ConversorComponent implements OnInit {
   possuiErro: boolean;
   conversaoResponse: ConversaoResponse;
 
+  @ViewChild("conversaoForm", { static: true }) conversaoForm: NgForm;
 
   constructor(private moedaService: MoedaService, private conversorService: ConversorService) { }
 
   init(): void {
-    this.conversao = new Conversao('USD','BRL', null);
+    this.conversao = new Conversao('EUR','BRL', null);
     this.possuiErro = false;
   }
 
@@ -31,9 +32,12 @@ export class ConversorComponent implements OnInit {
   }
 
   converter(): void {
-   // if(this.conversaoForm.form.valid){
-   //   alert('Convertendo: ' + JSON.stringify(this.conversao))
-   // }
+   if(this.conversaoForm.form.valid){
+     this.conversorService.converter(this.conversao).subscribe(
+       response => this.conversaoResponse = response,
+       error => this.possuiErro = true
+     )
+    }
   }
 
 

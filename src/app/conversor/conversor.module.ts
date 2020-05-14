@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 
 import { ConversorComponent } from './components/conversor.component';
 import { MoedaService, ConversorService} from './services';
+import { NumeroDirective } from './directives';
+import { ModalCotacaoComponent } from './utils';
+import { DataBrPipe } from './pipes';
 
 
 
@@ -12,7 +15,10 @@ import { MoedaService, ConversorService} from './services';
 
 @NgModule({
   declarations: [
-    ConversorComponent],
+    ConversorComponent,
+    NumeroDirective,
+    ModalCotacaoComponent,
+    DataBrPipe],
   imports: [
     CommonModule,FormsModule
   ],
